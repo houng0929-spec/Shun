@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>橡園咖啡 · 7月豆單</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans+TC:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --char:#1c1815;
+    --char-soft:#251f1a;
+    --ember:#c4622d;
+    --ember-soft:#e08c5b;
+    --parchment:#efe7da;
+    --bean:#3b2a1e;
+    --cream:#f4eee1;
+    --brass:#a3813f;
+    --line:rgba(244,238,225,0.14);
+    --line-dark:rgba(59,42,30,0.16);
+    --radius:14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'IBM Plex Sans TC', sans-serif;
+    background:var(--parchment);
+    color:var(--bean);
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:90px;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:radial-gradient(120% 140% at 15% -10%, #2c231d 0%, var(--char) 55%, var(--char-soft) 100%);
+    color:var(--cream);
+    padding:56px 24px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.12em;
+    color:var(--ember-soft);
+    border:1px solid rgba(224,140,91,0.4);
+    padding:5px 12px; border-radius:999px;
+    margin-bottom:22px;
+  }
+  .hero .eyebrow .dot{
+    width:6px; height:6px; border-radius:50%; background:var(--ember-soft);
+    box-shadow:0 0 8px var(--ember-soft);
+  }
+  .hero h1{
+    font-size:38px; line-height:1.25; margin-bottom:14px;
+    max-width:11ch;
+  }
+  .hero p.sub{
+    font-size:15px; line-height:1.75; color:rgba(244,238,225,0.72);
+    max-width:34ch; margin-bottom:28px;
+  }
+  .hero .stats{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    border-top:1px solid var(--line);
+  }
+  .hero .stats div{
+    padding:14px 4px 0;
+    border-right:1px solid var(--line);
+  }
+  .hero .stats div:last-child{ border-right:none; }
+  .hero .stats .num{ font-family:'IBM Plex Mono',monospace; font-size:19px; color:var(--ember-soft); }
+  .hero .stats .label{ font-size:11.5px; color:rgba(244,238,225,0.55); margin-top:3px; }
+
+  /* ---------- ABOUT / INTRO (replaces the roast-curve section) ---------- */
+  .about{
+    background:var(--char-soft);
+    color:var(--cream);
+    padding:34px 24px 30px;
+  }
+  .about .about-eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px; letter-spacing:0.1em;
+    color:var(--ember-soft); margin-bottom:10px;
+  }
+  .about h2{
+    font-size:22px; line-height:1.5; margin-bottom:14px;
+    max-width:20ch;
+  }
+  .about p{
+    font-size:13.5px; line-height:1.85;
+    color:rgba(244,238,225,0.68);
+    max-width:38ch; margin-bottom:22px;
+  }
+  .about-highlights{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+  }
+  .about-highlights .item{
+    background:rgba(244,238,225,0.05);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 10px;
+    text-align:center;
+  }
+  .about-highlights .num{
+    font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--ember-soft);
+  }
+  .about-highlights .label{
+    font-size:11px; color:rgba(244,238,225,0.55); margin-top:4px; line-height:1.4;
+  }
+
+  /* ---------- PHILOSOPHY STRIP ---------- */
+  .philosophy{
+    background:var(--parchment);
+    padding:26px 24px 8px;
+    font-size:13.5px; line-height:1.85;
+    color:rgba(59,42,30,0.78);
+    border-bottom:1px solid var(--line-dark);
+    padding-bottom:28px;
+  }
+  .philosophy b{ color:var(--bean); font-weight:600; }
+
+  /* ---------- TABS ---------- */
+  .tab-section{ padding:28px 20px 0; }
+  .tab-section h2{ font-size:22px; margin-bottom:4px; }
+  .tab-section .tab-sub{ font-size:12.5px; color:rgba(59,42,30,0.55); margin-bottom:18px; }
+  .tabs{
+    display:flex; gap:8px; overflow-x:auto; padding-bottom:6px;
+    -ms-overflow-style:none; scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{ display:none; }
+  .tab{
+    flex:0 0 auto;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    padding:9px 16px;
+    border-radius:999px;
+    border:1px solid var(--line-dark);
+    background:transparent;
+    color:var(--bean);
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all .15s ease;
+  }
+  .tab.active{
+    background:var(--bean);
+    color:var(--cream);
+    border-color:var(--bean);
+  }
+
+  /* ---------- PRODUCT CARDS ---------- */
+  .products{ padding:18px 20px 10px; display:flex; flex-direction:column; gap:14px; }
+  .card{
+    background:#fbf8f2;
+    border:1px solid var(--line-dark);
+    border-radius:var(--radius);
+    padding:18px;
+    position:relative;
+  }
+  .card.soldout{ opacity:0.6; }
+  .card-top{ display:flex; justify-content:space-between; gap:12px; margin-bottom:8px; }
+  .card-name{ font-size:16.5px; font-weight:600; line-height:1.4; }
+  .card-meta{ font-size:12px; color:rgba(59,42,30,0.5); margin-top:3px; }
+  .card-price{ font-family:'IBM Plex Mono',monospace; font-size:16px; color:var(--ember); white-space:nowrap; text-align:right; }
+  .card-price small{ font-size:11px; color:rgba(59,42,30,0.5); display:block; font-weight:400; }
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 14px; }
+  .tag{
+    font-size:11.5px; padding:4px 10px; border-radius:999px;
+    background:rgba(163,129,63,0.12); color:var(--brass);
+  }
+  .tag.soldout-tag{ background:rgba(196,98,45,0.14); color:var(--ember); }
+  .roast-row{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:10px 0 2px; }
+  .roast-row .roast-label-static{
+    font-size:11.5px; padding:4px 10px; border-radius:999px;
+    background:rgba(59,42,30,0.06); color:var(--bean);
+  }
+  .roast-toggle{ display:flex; gap:6px; }
+  .roast-pill{
+    font-family:'IBM Plex Sans TC',sans-serif;
+    font-size:12px; padding:5px 12px; border-radius:999px;
+    border:1px solid var(--line-dark); background:transparent; color:rgba(59,42,30,0.55);
+    cursor:pointer;
+  }
+  .roast-pill.active{ background:var(--bean); border-color:var(--bean); color:var(--cream); }
+  .roast-hint{ font-size:10.5px; color:rgba(59,42,30,0.4); width:100%; margin-top:2px; }
+  .card-bottom{ display:flex; justify-content:space-between; align-items:center; }
+  .freshness{ font-size:11.5px; color:rgba(59,42,30,0.45); font-family:'IBM Plex Mono',monospace; }
+  .qty{ display:flex; align-items:center; gap:0; border:1px solid var(--line-dark); border-radius:10px; overflow:hidden; }
+  .qty button{
+    width:34px; height:34px; border:none; background:transparent;
+    font-size:17px; color:var(--bean); cursor:pointer;
+  }
+  .qty button:active{ background:rgba(59,42,30,0.08); }
+  .qty .val{ width:32px; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:14px; }
+  .qty button:disabled{ opacity:0.3; cursor:not-allowed; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:36px 24px 20px;
+    text-align:center;
+    font-size:12px;
+    color:rgba(59,42,30,0.45);
+  }
+  footer .brand{ font-family:'Fraunces',serif; font-size:15px; color:var(--bean); margin-bottom:6px; }
+
+  /* ---------- STICKY CART ---------- */
+  .cart-bar{
+    position:fixed; left:16px; right:16px; bottom:16px;
+    background:var(--char);
+    color:var(--cream);
+    border-radius:16px;
+    padding:14px 18px;
+    display:flex; justify-content:space-between; align-items:center;
+    box-shadow:0 10px 30px rgba(28,24,21,0.35);
+    transform:translateY(120%);
+    transition:transform .25s ease;
+    z-index:50;
+  }
+  .cart-bar.show{ transform:translateY(0); }
+  .cart-bar .info .count{ font-size:12px; color:rgba(244,238,225,0.6); }
+  .cart-bar .info .total{ font-family:'IBM Plex Mono',monospace; font-size:18px; margin-top:2px; }
+  .cart-bar button{
+    background:var(--ember); color:#fff; border:none;
+    padding:11px 20px; border-radius:10px; font-size:14px; font-weight:600;
+    font-family:'IBM Plex Sans TC',sans-serif; cursor:pointer;
+  }
+
+  /* ---------- MODAL ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(28,24,21,0.55);
+    display:none; align-items:flex-end; z-index:100;
+  }
+  .overlay.show{ display:flex; }
+  .sheet{
+    background:var(--parchment);
+    width:100%; max-height:82vh; overflow-y:auto;
+    border-radius:20px 20px 0 0;
+    padding:22px 22px 28px;
+  }
+  .sheet-handle{ width:36px; height:4px; background:var(--line-dark); border-radius:2px; margin:0 auto 16px; }
+  .sheet h3{ font-size:19px; margin-bottom:14px; }
+  .sheet-item{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:10px 0; border-bottom:1px solid var(--line-dark);
+    font-size:14px;
+  }
+  .sheet-item .name{ font-weight:500; }
+  .sheet-item .sub{ font-size:12px; color:rgba(59,42,30,0.5); margin-top:2px; }
+  .sheet-total{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:16px 0 4px; font-family:'IBM Plex Mono',monospace;
+  }
+  .sheet-total .label{ font-size:13px; color:rgba(59,42,30,0.6); font-family:'IBM Plex Sans TC',sans-serif; }
+  .sheet-total .amount{ font-size:22px; color:var(--ember); }
+  .sheet-note{ font-size:12px; color:rgba(59,42,30,0.55); line-height:1.7; margin:14px 0 18px; }
+  .pickup-block{ margin:16px 0 4px; }
+  .pickup-block .pickup-label{ font-size:13px; font-weight:600; color:var(--bean); margin-bottom:8px; }
+  .pickup-options{ display:flex; flex-direction:column; gap:8px; }
+  .pickup-option{
+    display:flex; align-items:center; gap:10px;
+    border:1px solid var(--line-dark); border-radius:10px;
+    padding:11px 12px; font-size:13.5px; cursor:pointer;
+  }
+  .pickup-option.active{ border-color:var(--ember); background:rgba(196,98,45,0.06); }
+  .pickup-option input{ accent-color:var(--ember); width:16px; height:16px; }
+  .sheet-actions{ display:flex; flex-direction:column; gap:10px; }
+  .btn-primary{
+    background:var(--ember); color:#fff; border:none; padding:14px; border-radius:12px;
+    font-size:14.5px; font-weight:600; font-family:'IBM Plex Sans TC',sans-serif; cursor:pointer;
+  }
+  .btn-secondary{
+    background:transparent; color:var(--bean); border:1px solid var(--line-dark);
+    padding:14px; border-radius:12px; font-size:14.5px; font-family:'IBM Plex Sans TC',sans-serif; cursor:pointer;
+  }
+  .toast{
+    position:fixed; left:50%; bottom:110px; transform:translate(-50%,10px);
+    background:var(--bean); color:var(--cream); font-size:13px;
+    padding:10px 18px; border-radius:999px; opacity:0; pointer-events:none;
+    transition:all .2s ease; z-index:200; white-space:nowrap;
+  }
+  .toast.show{ opacity:1; transform:translate(-50%,0); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow"><span class="dot"></span>自家小批次烘焙 · 用心顧好每一鍋</div>
+  <h1>手工直火烘焙，<br>喝得到用心。</h1>
+  <p class="sub">堅持自己烘、小批次現烘現出貨，不外包代工。從選豆到烘焙全程親自把關，只為了讓你喝到新鮮又穩定的好味道。</p>
+  <div class="stats">
+    <div><div class="num">手工</div><div class="label">直火烘焙</div></div>
+    <div><div class="num">小批次</div><div class="label">用心不將就</div></div>
+    <div><div class="num">現烘</div><div class="label">新鮮直送</div></div>
+  </div>
+</section>
+
+<!-- ABOUT / INTRO -->
+<section class="about">
+  <div class="about-eyebrow">ABOUT · 橡園咖啡</div>
+  <h2>Enjoy your coffee with us —<br>七月豆單，19支單品現烘</h2>
+  <p>從產地到烘豆機，我們每個月更新豆單，讓你喝到當季最好的生豆狀態。半磅小份量剛好，喝完剛好再回來換下一支。</p>
+  <div class="about-highlights">
+    <div class="item"><div class="num">19</div><div class="label">支單品豆<br>本月豆單</div></div>
+    <div class="item"><div class="num">每月</div><div class="label">更新豆單<br>喝當季狀態</div></div>
+    <div class="item"><div class="num">半磅</div><div class="label">小份量裝<br>新鮮喝完</div></div>
+  </div>
+</section>
+
+<!-- FRESHNESS NOTE -->
+<div class="philosophy">
+  <b>新鮮，是我們唯一的堅持：</b> 每支豆子都會標明烘焙日期與建議賞味期，收到後盡量在賞味期內喝完風味最好。部分豆子有兩種烘焙深度可選，訂購時直接在豆子卡片上點選你要的深度即可，其餘交給我們處理。
+</div>
+
+<!-- TABS -->
+<div class="tab-section">
+  <h2>選擇豆單</h2>
+  <div class="tab-sub">依烘焙深度分類，數量現場調整</div>
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-cat="light">淺焙 · 明亮花果</button>
+    <button class="tab" data-cat="medium">中焙 · 平衡日常</button>
+    <button class="tab" data-cat="dark">中深焙 · 濃厚醇感</button>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products" id="products"></div>
+
+<footer>
+  <div class="brand">橡園咖啡</div>
+  自家烘豆 · 7月豆單 · 台灣 7-11 超商取貨<br>
+  訂單將透過 LINE 確認庫存與出貨時間
+</footer>
+
+<!-- CART BAR -->
+<div class="cart-bar" id="cartBar">
+  <div class="info">
+    <div class="count" id="cartCount">已選 0 款</div>
+    <div class="total mono" id="cartTotal">$0</div>
+  </div>
+  <button id="openSheet">查看訂單</button>
+</div>
+
+<!-- ORDER SHEET -->
+<div class="overlay" id="overlay">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <h3>訂單內容</h3>
+    <div id="sheetItems"></div>
+    <div class="sheet-total">
+      <span class="label">總計</span>
+      <span class="amount" id="sheetTotal">$0</span>
+    </div>
+    <div class="pickup-block">
+      <div class="pickup-label">取貨方式</div>
+      <div class="pickup-options" id="pickupOptions">
+        <label class="pickup-option active"><input type="radio" name="pickup" value="7-11 超商取貨" checked>7-11 超商取貨</label>
+        <label class="pickup-option"><input type="radio" name="pickup" value="郵寄到府">郵寄到府</label>
+        <label class="pickup-option"><input type="radio" name="pickup" value="面交 / 其他方式（將在 LINE 中說明）">面交 / 其他方式（將在 LINE 中說明）</label>
+      </div>
+    </div>
+    <div class="sheet-note">送出後會開啟 LINE，貼上訂單內容給我們即可，我們會確認庫存與最新烘焙日期後回覆取貨時間。</div>
+    <div class="sheet-actions">
+      <button class="btn-primary" id="sendLine">用 LINE 送出訂單</button>
+      <button class="btn-secondary" id="copyOrder">複製訂單內容</button>
+      <button class="btn-secondary" id="closeSheet">繼續選豆</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">已複製訂單內容</div>
+
+<script>
+// ---- 設定：改成你自己的 LINE 官方帳號 ID ----
+const LINE_ID = "@lxw5202s";
+
+// ---- 商品資料：橡園咖啡 7月豆單 ----
+const PRODUCTS = [
+  { id:'1',  cat:'dark',   name:'黃金曼特寧', meta:'印尼', roast:'中深焙', price:330, tags:['印尼'] },
+  { id:'2',  cat:'medium', name:'花神', meta:'瓜地馬拉', roast:'中焙', price:350, tags:['瓜地馬拉'] },
+  { id:'3',  cat:'light',  name:'吉托基處理廠 紅蜜處理', meta:'盧安達', roastOptions:['中淺焙','淺焙'], price:450, tags:['盧安達','紅蜜處理'] },
+  { id:'4',  cat:'light',  name:'耶加雪菲', meta:'衣索比亞', roastOptions:['中淺焙','淺焙'], price:330, tags:['衣索比亞'] },
+  { id:'5',  cat:'medium', name:'帕里雅望', meta:'秘魯', roast:'中焙', price:450, tags:['秘魯'] },
+  { id:'6',  cat:'medium', name:'奈利 圓豆', meta:'肯亞', roast:'中焙', price:400, tags:['肯亞','圓豆'] },
+  { id:'7',  cat:'light',  name:'繽紛藍莓', meta:'哥倫比亞', roast:'淺焙', price:700, tags:['哥倫比亞'] },
+  { id:'8',  cat:'medium', name:'頂級黃金曼特寧', meta:'印尼', roast:'中焙', price:430, tags:['印尼'] },
+  { id:'9',  cat:'medium', name:'克拉菈莊園', meta:'哥倫比亞', roastOptions:['中焙','淺焙'], price:400, tags:['哥倫比亞','莊園'] },
+  { id:'10', cat:'medium', name:'奇拉提納', meta:'肯亞', roastOptions:['中焙','中淺焙'], price:500, tags:['肯亞'] },
+  { id:'11', cat:'light',  name:'古吉 烏拉嘎提波波卡 日曬', meta:'衣索比亞', roast:'淺焙', price:450, tags:['衣索比亞','日曬'] },
+  { id:'12', cat:'dark',   name:'義式綜合', meta:'綜合豆', roast:'中深焙', price:280, tags:['綜合豆'] },
+  { id:'13', cat:'light',  name:'耶加雪菲 班可歐托', meta:'衣索比亞', roastOptions:['中淺焙','淺焙'], price:450, tags:['衣索比亞'] },
+  { id:'14', cat:'medium', name:'帕卡瑪拉 象豆', meta:'尼加拉瓜', roast:'中焙', price:500, tags:['尼加拉瓜','象豆'] },
+  { id:'15', cat:'medium', name:'加拉巴哥海龜', meta:'厄瓜多', roast:'中焙', price:800, tags:['厄瓜多'] },
+  { id:'16', cat:'medium', name:'帕卡瑪拉 圓豆', meta:'尼加拉瓜', roast:'', price:0, tags:['尼加拉瓜','圓豆'], soldout:true },
+  { id:'17', cat:'medium', name:'泰武', meta:'台灣屏東', roastOptions:['中焙','淺焙'], price:1000, tags:['台灣屏東'] },
+  { id:'18', cat:'light',  name:'緋紅藝伎 草莓水洗', meta:'哥倫比亞', roast:'淺焙', price:950, tags:['哥倫比亞','藝伎','草莓水洗'] },
+  { id:'19', cat:'medium', name:'阿里山', meta:'台灣', roast:'中焙', price:600, tags:['台灣'] },
+];
+
+// 記錄每支「可選烘焙深度」豆子目前選到哪個深度，預設選第一個
+const roastSelection = {};
+PRODUCTS.forEach(p => { if(p.roastOptions) roastSelection[p.id] = p.roastOptions[0]; });
+function getRoastLabel(p){ return p.roastOptions ? roastSelection[p.id] : p.roast; }
+
+let activeCat = 'light';
+const cart = {}; // id -> qty
+
+function renderProducts(){
+  const wrap = document.getElementById('products');
+  wrap.innerHTML = '';
+  PRODUCTS.filter(p => p.cat === activeCat).forEach(p => {
+    const qty = cart[p.id] || 0;
+    const el = document.createElement('div');
+    el.className = 'card' + (p.soldout ? ' soldout' : '');
+    el.innerHTML = `
+      <div class="card-top">
+        <div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-meta">${p.meta}</div>
+        </div>
+        <div class="card-price">${p.soldout ? '補貨中' : '$'+p.price}<small>${p.soldout ? '' : '/半磅'}</small></div>
+      </div>
+      <div class="tags">${p.tags.map(t=>`<span class="tag${p.soldout?' soldout-tag':''}">${t}</span>`).join('')}${p.soldout ? '<span class="tag soldout-tag">缺貨等待新批次</span>' : ''}</div>
+      ${!p.soldout ? (p.roastOptions
+        ? `<div class="roast-row">
+             <div class="roast-toggle" data-id="${p.id}">
+               ${p.roastOptions.map(r=>`<button class="roast-pill${roastSelection[p.id]===r?' active':''}" data-roast="${r}">${r}</button>`).join('')}
+             </div>
+             <div class="roast-hint">此豆有兩種烘焙深度，請選一個</div>
+           </div>`
+        : `<div class="roast-row"><span class="roast-label-static">${p.roast}</span></div>`
+      ) : ''}
+      <div class="card-bottom">
+        <div class="freshness">7月豆單</div>
+        <div class="qty">
+          <button data-act="minus" data-id="${p.id}" ${p.soldout?'disabled':''}>−</button>
+          <div class="val" id="val-${p.id}">${qty}</div>
+          <button data-act="plus" data-id="${p.id}" ${p.soldout?'disabled':''}>+</button>
+        </div>
+      </div>
+    `;
+    wrap.appendChild(el);
+  });
+}
+
+function changeQty(id, delta){
+  const current = cart[id] || 0;
+  const next = Math.max(0, current + delta);
+  if(next === 0) delete cart[id]; else cart[id] = next;
+  const valEl = document.getElementById('val-'+id);
+  if(valEl) valEl.textContent = next;
+  updateCartBar();
+}
+
+function getCartItems(){
+  return Object.entries(cart).map(([id, qty]) => {
+    const p = PRODUCTS.find(p => p.id === id);
+    return { ...p, qty, subtotal: p.price * qty, roastLabel: getRoastLabel(p) };
+  });
+}
+
+function updateCartBar(){
+  const items = getCartItems();
+  const count = items.length;
+  const total = items.reduce((s,i)=>s+i.subtotal, 0);
+  document.getElementById('cartCount').textContent = `已選 ${count} 款`;
+  document.getElementById('cartTotal').textContent = `$${total}`;
+  document.getElementById('cartBar').classList.toggle('show', count > 0);
+}
+
+function buildOrderText(){
+  const items = getCartItems();
+  const total = items.reduce((s,i)=>s+i.subtotal, 0);
+  const pickup = document.querySelector('input[name="pickup"]:checked')?.value || '7-11 超商取貨';
+  let lines = ['【橡園咖啡 訂單】'];
+  items.forEach(i => lines.push(`${i.name}（${i.roastLabel}） x${i.qty} — $${i.subtotal}`));
+  lines.push(`—— 總計 $${total}`);
+  lines.push(`取貨方式：${pickup}`);
+  return lines.join('\n');
+}
+
+function renderSheet(){
+  const items = getCartItems();
+  const total = items.reduce((s,i)=>s+i.subtotal, 0);
+  const wrap = document.getElementById('sheetItems');
+  wrap.innerHTML = items.map(i => `
+    <div class="sheet-item">
+      <div>
+        <div class="name">${i.name}</div>
+        <div class="sub">${i.meta} · ${i.roastLabel} · x${i.qty}</div>
+      </div>
+      <div class="mono">$${i.subtotal}</div>
+    </div>
+  `).join('') || '<div class="sheet-item"><span class="sub">尚未選擇豆子</span></div>';
+  document.getElementById('sheetTotal').textContent = `$${total}`;
+}
+
+// tabs
+document.getElementById('tabs').addEventListener('click', e => {
+  const btn = e.target.closest('.tab');
+  if(!btn) return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  activeCat = btn.dataset.cat;
+  renderProducts();
+});
+
+// pickup method selection styling
+document.getElementById('pickupOptions').addEventListener('change', e => {
+  document.querySelectorAll('.pickup-option').forEach(opt => {
+    opt.classList.toggle('active', opt.contains(e.target) ? true : opt.querySelector('input').checked);
+  });
+});
+
+// roast-level pill selection
+document.getElementById('products').addEventListener('click', e => {
+  const pill = e.target.closest('.roast-pill');
+  if(!pill) return;
+  const group = pill.closest('.roast-toggle');
+  const id = group.dataset.id;
+  roastSelection[id] = pill.dataset.roast;
+  group.querySelectorAll('.roast-pill').forEach(b => b.classList.toggle('active', b === pill));
+});
+
+// qty buttons
+document.getElementById('products').addEventListener('click', e => {
+  const btn = e.target.closest('button[data-act]');
+  if(!btn || btn.disabled) return;
+  const delta = btn.dataset.act === 'plus' ? 1 : -1;
+  changeQty(btn.dataset.id, delta);
+});
+
+// sheet open/close
+document.getElementById('openSheet').addEventListener('click', () => {
+  renderSheet();
+  document.getElementById('overlay').classList.add('show');
+});
+document.getElementById('closeSheet').addEventListener('click', () => {
+  document.getElementById('overlay').classList.remove('show');
+});
+document.getElementById('overlay').addEventListener('click', e => {
+  if(e.target.id === 'overlay') document.getElementById('overlay').classList.remove('show');
+});
+
+// send to LINE
+document.getElementById('sendLine').addEventListener('click', () => {
+  const text = encodeURIComponent(buildOrderText());
+  const url = `https://line.me/R/oaMessage/${LINE_ID}/?${text}`;
+  window.open(url, '_blank');
+});
+
+// copy order
+document.getElementById('copyOrder').addEventListener('click', () => {
+  const text = buildOrderText();
+  navigator.clipboard.writeText(text).then(() => {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'), 1600);
+  });
+});
+
+renderProducts();
+updateCartBar();
+</script>
+
+</body>
+</html>
