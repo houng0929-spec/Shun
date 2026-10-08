@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>橡園咖啡 · 9月豆單</title>
+<title>橡園咖啡 · 10月豆單</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans+TC:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -75,7 +75,7 @@
   .hero .stats .num{ font-family:'IBM Plex Mono',monospace; font-size:19px; color:var(--ember-soft); }
   .hero .stats .label{ font-size:11.5px; color:rgba(244,238,225,0.55); margin-top:3px; }
 
-  /* ---------- ABOUT / INTRO ---------- */
+  /* ---------- ABOUT / INTRO (replaces the roast-curve section) ---------- */
   .about{
     background:var(--char-soft);
     color:var(--cream);
@@ -301,7 +301,7 @@
 <!-- ABOUT / INTRO -->
 <section class="about">
   <div class="about-eyebrow">ABOUT · 橡園咖啡</div>
-  <h2>Enjoy your coffee with us —<br>九月豆單，20支單品現烘</h2>
+  <h2>Enjoy your coffee with us —<br>十月豆單，20支單品現烘</h2>
   <p>從產地到烘豆機，我們每個月更新豆單，讓你喝到當季最好的生豆狀態。半磅小份量剛好，喝完剛好再回來換下一支。</p>
   <div class="about-highlights">
     <div class="item"><div class="num">20</div><div class="label">支單品豆<br>本月豆單</div></div>
@@ -331,7 +331,7 @@
 
 <footer>
   <div class="brand">橡園咖啡</div>
-  自家烘豆 · 9月豆單 · 台灣 7-11 超商取貨<br>
+  自家烘豆 · 10月豆單 · 台灣 7-11 超商取貨<br>
   訂單將透過 LINE 確認庫存與出貨時間
 </footer>
 
@@ -377,26 +377,26 @@
 // ---- 設定：改成你自己的 LINE 官方帳號 ID ----
 const LINE_ID = "@lxw5202s";
 
-// ---- 商品資料：橡園咖啡 9月豆單 ----
+// ---- 商品資料：橡園咖啡 10月豆單 ----
 const PRODUCTS = [
   { id:'1',  cat:'dark',   name:'黃金曼特寧', meta:'印尼', roast:'中深焙', price:330, tags:['印尼'] },
   { id:'2',  cat:'medium', name:'花神', meta:'瓜地馬拉', roast:'中焙', price:350, tags:['瓜地馬拉'] },
-  { id:'3',  cat:'light',  name:'聖伊蓮娜 波本蜜處理', meta:'薩爾瓦多', roastOptions:['中淺焙','淺焙'], price:450, tags:['薩爾瓦多','蜜處理'] },
+  { id:'3',  cat:'light',  name:'尤加利 處理廠蜜處理', meta:'盧安達', roastOptions:['中淺焙','淺焙'], price:450, tags:['盧安達','蜜處理'] },
   { id:'4',  cat:'light',  name:'耶加雪菲', meta:'衣索比亞', roastOptions:['中淺焙','淺焙'], price:330, tags:['衣索比亞'] },
-  { id:'5',  cat:'medium', name:'胡寧 安地斯', meta:'秘魯', roast:'中焙', price:450, tags:['秘魯'] },
+  { id:'5',  cat:'medium', name:'微微特南果 波爾莎', meta:'瓜地馬拉', roastOptions:['中焙','淺焙'], price:450, tags:['瓜地馬拉'] },
   { id:'6',  cat:'medium', name:'奈利 圓豆', meta:'肯亞', roast:'中焙', price:400, tags:['肯亞','圓豆'] },
   { id:'7',  cat:'light',  name:'卡法卡 緋姬藝伎', meta:'衣索比亞', roast:'淺焙', price:500, tags:['衣索比亞','藝伎'] },
   { id:'8',  cat:'medium', name:'頂級黃金曼特寧', meta:'印尼', roast:'中焙', price:430, tags:['印尼'] },
   { id:'9',  cat:'medium', name:'帕卡馬拉 象豆', meta:'尼加拉瓜', roast:'中焙', price:500, tags:['尼加拉瓜','象豆'] },
-  { id:'10', cat:'medium', name:'加查薩處理廠', meta:'肯亞', roastOptions:['中焙','淺焙'], price:500, tags:['肯亞'] },
-  { id:'11', cat:'light',  name:'古吉姬格薩 日曬', meta:'衣索比亞', roast:'淺焙', price:450, tags:['衣索比亞','日曬'] },
+  { id:'10', cat:'medium', name:'加古悠處理廠', meta:'肯亞', roastOptions:['中焙','淺焙'], price:500, tags:['肯亞'] },
+  { id:'11', cat:'light',  name:'古吉 吉寶多果 日曬', meta:'衣索比亞', roast:'淺焙', price:450, tags:['衣索比亞','日曬'] },
   { id:'12', cat:'dark',   name:'義式綜合', meta:'綜合豆', roast:'中深焙', price:280, tags:['綜合豆'] },
   { id:'13', cat:'light',  name:'古吉姬格薩', meta:'衣索比亞', roastOptions:['中淺焙','淺焙'], price:450, tags:['衣索比亞'] },
-  { id:'14', cat:'medium', name:'檸檬樹 花語', meta:'尼加拉瓜', roastOptions:['中焙','淺焙'], price:400, tags:['尼加拉瓜'] },
+  { id:'14', cat:'medium', name:'布蘭卡里瓦斯 人處理廠', meta:'哥斯大黎加', roast:'中焙', price:400, tags:['哥斯大黎加'] },
   { id:'15', cat:'medium', name:'加拉巴哥海龜', meta:'厄瓜多', roast:'中焙', price:800, tags:['厄瓜多'] },
   { id:'16', cat:'light',  name:'藍山 NO.1', meta:'牙買加', roastOptions:['中淺焙','淺焙'], price:2000, tags:['牙買加'] },
   { id:'17', cat:'medium', name:'泰武', meta:'台灣屏東', roastOptions:['中焙','淺焙'], price:1000, tags:['台灣屏東'] },
-  { id:'18', cat:'light',  name:'緋紅藝伎 草莓水洗', meta:'哥倫比亞', roast:'淺焙', price:950, tags:['哥倫比亞','藝伎','草莓水洗'] },
+  { id:'18', cat:'medium', name:'阿里山', meta:'台灣', roast:'中焙', price:600, tags:['台灣'] },
   { id:'19', cat:'light',  name:'伊莎貝爾 藝伎水洗', meta:'波利維亞', roast:'淺焙', price:1900, tags:['波利維亞','藝伎','水洗'] },
   { id:'20', cat:'medium', name:'帕卡馬拉 圓豆', meta:'尼加拉瓜', roast:'中焙', price:600, tags:['尼加拉瓜','圓豆'] },
 ];
@@ -435,7 +435,7 @@ function renderProducts(){
         : `<div class="roast-row"><span class="roast-label-static">${p.roast}</span></div>`
       ) : ''}
       <div class="card-bottom">
-        <div class="freshness">9月豆單</div>
+        <div class="freshness">10月豆單</div>
         <div class="qty">
           <button data-act="minus" data-id="${p.id}" ${p.soldout?'disabled':''}>−</button>
           <div class="val" id="val-${p.id}">${qty}</div>
